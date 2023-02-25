@@ -167,6 +167,7 @@ export default function Product(props) {
                   itemAlign: 'center',
                   padding: '2px',
                 }}
+                className='add_to_cart'
               >
                 Add to cart
               </span>

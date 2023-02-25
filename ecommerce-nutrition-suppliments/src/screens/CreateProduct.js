@@ -102,7 +102,8 @@ function CreateProduct() {
         }
       })
       .catch((err) => {
-        toast.error(getError(err));
+        // toast.error(getError(err));
+        console.log('error in create', err)
         navigate('/admin/products');
       });
 

@@ -221,7 +221,7 @@ export default function SlidingProducts() {
                       </Button>
                     )
                   ) : state?.userInfo?.isAdmin ? null : (
-                    <Button onClick={() => addToCartHandler(ele)}>
+                    <Button onClick={() => addToCartHandler(ele)}  >
                       Add to cart
                     </Button>
                   )}

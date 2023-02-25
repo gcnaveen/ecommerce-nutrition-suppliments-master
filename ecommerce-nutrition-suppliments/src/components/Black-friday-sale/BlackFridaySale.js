@@ -62,6 +62,7 @@ export default function BlackFridaySale() {
       if (distance < 0) {
         // stop timer
         clearInterval(interval.current);
+        setTodayDay(presentDay);
       } else {
         setTimerDays(days);
         setTimerHours(hours);

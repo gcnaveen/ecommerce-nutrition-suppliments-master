@@ -551,6 +551,7 @@ function App() {
                 path="/allDealoftheday"
                 element={<ViewDealOfTheDayProducts />}
               ></Route>
+              
               {/* slide Route */}
               <Route
                 path="/slider/:sliderID"

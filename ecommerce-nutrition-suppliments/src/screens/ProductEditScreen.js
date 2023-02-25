@@ -118,7 +118,7 @@ export default function ProductEditScreen() {
     } else if (productImages.images.length > 0) {
       filesStatus = 'ADDITIONAL_IMAGE';
     } else if (productImages.image) {
-      filesStatus = 'ADDITIONAL_IMAGE';
+      filesStatus = 'MAIN_IMAGE';
     }
 
     const formData = new FormData();

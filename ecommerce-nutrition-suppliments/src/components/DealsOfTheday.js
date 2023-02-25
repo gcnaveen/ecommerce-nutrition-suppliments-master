@@ -12,6 +12,7 @@ export default function DealsOfTheday(props) {
   console.log('in side SaleOfTheday ', props);
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const [modal, setModal] = useState(false);
+  const [show, setShow] = useState(10);
 
   const {
     userInfo,
@@ -33,6 +34,12 @@ export default function DealsOfTheday(props) {
     setModal(!modal);
 
     // toast.success(`${item.name} Added to the cart`);
+  };
+
+  const _slice = props.products.slice(0, show);
+  console.log('slice in best', _slice);
+  const loadMore = () => {
+    setShow(show + show);
   };
 
   useEffect(() => {
@@ -67,7 +74,7 @@ export default function DealsOfTheday(props) {
         </div>
       </div>
       <Row className="justify-content-evenly">
-        {props.products.map((product) =>
+        {_slice.map((product) =>
           (product.productDiscountedPrice / product.price) * 100 >= 15 ? (
             <Col
               key={product.slug}
@@ -182,6 +189,7 @@ export default function DealsOfTheday(props) {
                           itemAlign: 'center',
                           padding: '2px',
                         }}
+                        className='add_to_cart'
                       >
                         Add to cart
                       </span>

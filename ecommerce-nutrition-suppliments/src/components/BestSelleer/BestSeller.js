@@ -84,7 +84,7 @@ export default function BestSeller(props) {
 
       <Row className="justify-content-evenly">
         {props.product.map((product) =>
-          product.rating >= 3 ? (
+          product.rating >= 2.4 ? (
             <Col
               key={product.slug}
               sm={6}
@@ -198,6 +198,7 @@ export default function BestSeller(props) {
                           itemAlign: 'center',
                           padding: '2px',
                         }}
+                        className='add_to_cart'
                       >
                         Add to cart
                       </span>

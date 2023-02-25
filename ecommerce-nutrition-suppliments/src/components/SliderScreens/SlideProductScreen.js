@@ -170,7 +170,8 @@ export default function SlideProductScreen() {
                   <ListGroup.Item>
                     <div className="d-grid">
                       {!userInfo?.isAdmin && (
-                        <Button onClick={addToCartHandler} variant="primary">
+                        <Button onClick={addToCartHandler} variant="primary" >
+                          
                           Add to Cart
                         </Button>
                       )}

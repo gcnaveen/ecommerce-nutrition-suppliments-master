@@ -514,7 +514,7 @@ a:hover {
 }
 .searchboxstyle{
   padding-left: 1.2rem;
-  width: 19.9rem
+  width: 19.9rem !important
 }
 .example {
   -ms-overflow-style: none; /* IE and Edge */
@@ -567,8 +567,8 @@ a:hover {
   }
 } */
 .card {
-  background-color: #dce9d6 !important;
-  border: none !important;
+  /* background-color: #dce9d6 !important; */
+  border: 0.5px solid #d0d0d0 !important;
 }
 
 /* .form-control {
@@ -729,6 +729,9 @@ input[type='number']::-webkit-outer-spin-button {
   }
   .signInbutton{
     font-size: 10px !important;
+  }
+  .add_to_cart{
+    font-size: 12px !important;
   }
   /* width: max-content */
 }
