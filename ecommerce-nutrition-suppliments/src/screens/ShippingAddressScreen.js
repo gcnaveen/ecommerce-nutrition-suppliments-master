@@ -90,7 +90,7 @@ export default function ShippingAddressScreen() {
             <Form.Control
               value={fullName}
               type="text"
-              onChange={(e) => setFullName(e.target.value)}
+              onChange={(e)  => setFullName(e.target.value)}
               required
             />
           </Form.Group>
@@ -167,7 +167,7 @@ export default function ShippingAddressScreen() {
             ) : (
               <div>{/* No location */}</div>
             )}
-          </div>
+          </div>  
           <div className="mb-3">
             <Button variant="primary" type="submit">
               Continue

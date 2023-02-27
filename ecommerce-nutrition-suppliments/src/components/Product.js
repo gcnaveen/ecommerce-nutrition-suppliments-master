@@ -119,7 +119,7 @@ export default function Product(props) {
           <Card.Text>
             <div>
               <span style={{ fontSize: '20px' }}>
-                <b>Rs.{discountPrice}</b>
+                <b>${discountPrice}</b>
               </span>
               <span
                 style={{
@@ -128,7 +128,7 @@ export default function Product(props) {
                 }}
               >
                 {' '}
-                Rs.{props.product.price}
+                ${props.product.price}
               </span>{' '}
               &nbsp; &nbsp;
               <span

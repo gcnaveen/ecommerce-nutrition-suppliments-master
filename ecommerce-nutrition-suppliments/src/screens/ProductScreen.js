@@ -201,8 +201,8 @@ export default function ProductScreen() {
               navigation={true}
             >
               {/* {console.log([product.image, ...product.images])} */}
-              {(product.image || product.image.images.length > 0) &&
-                [product.image, ...product.images]?.map((x, i) => (
+              {(product?.image || product?.image?.images?.length > 0) &&
+                [product?.image, ...product?.images]?.map((x, i) => (
                   <Col key={i}>
                     <SwiperSlide>
                       <img
@@ -245,10 +245,7 @@ export default function ProductScreen() {
                     Discount Price : {product.productDiscountedPrice}
                   </p>
 
-                  <p style={{ color: 'green' }}>
-                    For bulk orders and better offers please contact our sales
-                    team on +91-9387678635
-                  </p>
+                 
                 </p>{' '}
               </div>
 
@@ -295,6 +292,11 @@ export default function ProductScreen() {
               <h4>Description : </h4>
               <div>{product.description}</div>
             </div>
+            {product.additionalInfo?<div id="product_description" class="rte" itemprop="description">
+              <h4>additionalInfo : </h4>
+              <div>{product.additionalInfo}</div>
+            </div>:null}
+            
           </div>
         </Col>
       </Row>

@@ -46,7 +46,7 @@ export default function BlackFridaySale() {
   const startTimer = () => {
     const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-    const countDowndate = new Date('Feb 24 2023 00:00:00').getTime();
+    const countDowndate = new Date('Mar 3 2023 00:00:00').getTime();
     interval = setInterval(() => {
       const now = new Date().getTime();
       let presentDay = weekdays[new Date().getDay()];

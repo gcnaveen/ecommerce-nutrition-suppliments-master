@@ -186,6 +186,13 @@ function Footer() {
             </svg> */}
             <h5 style={{ color: 'white' }}>Location:</h5>
             <p style={{ color: 'white' }}>BDA Complex Banglore</p>
+            {/* <div>
+              <a href='#'> <li class='fab-fa-facebook-f'></li> </a>
+              <a href='#'> <li class='fab-fa-twitter'></li> </a>
+              <a href='#'> <li class='fab-fa-whatsapp'></li> </a>
+              <a href='#'> <li class='fab-fa-instagram'></li> </a>
+
+            </div> */}
           </Col>
           {/* <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -201,7 +208,7 @@ function Footer() {
           <Col>
             <p className="footer__copyright" style={{ color: 'white' }}>
               {' '}
-              Copyright {year} developed by MedsShop . All rights reserved.
+              Copyright {year} developed by RX Online . All rights reserved.
             </p>
           </Col>
         </Row>

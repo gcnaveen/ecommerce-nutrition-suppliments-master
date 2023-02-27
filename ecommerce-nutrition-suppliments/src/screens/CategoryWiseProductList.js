@@ -106,7 +106,7 @@ function CategoryWiseProductList() {
                     <div>
                       <span style={{ fontSize: '20px' }}>
                         {' '}
-                        <b>Rs.{ele.price - ele.productDiscountedPrice} </b>
+                        <b>${ele.price - ele.productDiscountedPrice} </b>
                       </span>
                       <span
                         style={{
@@ -115,7 +115,7 @@ function CategoryWiseProductList() {
                         }}
                       >
                         {' '}
-                        Rs.{ele.price}
+                        ${ele.price}
                       </span>
 
                       <span

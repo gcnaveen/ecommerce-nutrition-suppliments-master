@@ -12,7 +12,7 @@ import CartScreen from '../../screens/CartScreen';
 
 export default function BestSeller(props) {
   const { state, dispatch: ctxDispatch } = useContext(Store);
-  const [show, setShow] = useState(3);
+  const [show, setShow] = useState(10);
   const [modal, setModal] = useState(false);
 
   const {
@@ -83,7 +83,7 @@ export default function BestSeller(props) {
       {/* <h2 className="page-heading">Best Sellers</h2> */}
 
       <Row className="justify-content-evenly">
-        {props.product.map((product) =>
+        {_slice.map((product) =>
           product.rating >= 2.4 ? (
             <Col
               key={product.slug}
@@ -146,7 +146,7 @@ export default function BestSeller(props) {
                     <div>
                       <span style={{ fontSize: '20px' }}>
                         <b>
-                          Rs.{product.price - product.productDiscountedPrice}
+                          ${product.price - product.productDiscountedPrice}
                         </b>
                       </span>
                       <span
@@ -156,7 +156,7 @@ export default function BestSeller(props) {
                         }}
                       >
                         {' '}
-                        Rs.{product.price}
+                        ${product.price}
                       </span>{' '}
                       &nbsp; &nbsp;
                       <span

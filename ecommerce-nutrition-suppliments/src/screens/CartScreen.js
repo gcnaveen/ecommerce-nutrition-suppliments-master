@@ -218,7 +218,7 @@ export default function AddToCart() {
                         </Button>
                       </Col>
                       <Col md={3}>
-                        Rs.{item.price}
+                        ${item.price}
                         <div>
                           <select
                             style={{ fontSize: '13px' }}
@@ -256,7 +256,7 @@ export default function AddToCart() {
                 <ListGroup.Item>
                   <h5>
                     Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                    items) : Rs.
+                    items) : $
                     {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
                   </h5>
                 </ListGroup.Item>

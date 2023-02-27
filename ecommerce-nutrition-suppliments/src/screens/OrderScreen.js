@@ -369,7 +369,7 @@ export default function OrderScreen() {
                             data={[
                               {
                                 quantity: item.quantity,
-                                price: `Rs.${item.price}`,
+                                price: `$${item.price}`,
                               },
                             ]}
                             columns={[
@@ -396,13 +396,13 @@ export default function OrderScreen() {
                 <ListGroup.Item>
                   <Row>
                     <Col>Items</Col>
-                    <Col>Rs.{order.itemsPrice?.toFixed(2)}</Col>
+                    <Col>${order.itemsPrice?.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
                     <Col>Shipping</Col>
-                    <Col>Rs.{order?.shippingPrice?.toFixed(2)}</Col>
+                    <Col>${order?.shippingPrice?.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -417,7 +417,7 @@ export default function OrderScreen() {
                       <strong> Order Total</strong>
                     </Col>
                     <Col>
-                      <strong>Rs.{order?.totalPrice?.toFixed(2)}</strong>
+                      <strong>${order?.totalPrice?.toFixed(2)}</strong>
                     </Col>
                   </Row>
                 </ListGroup.Item>

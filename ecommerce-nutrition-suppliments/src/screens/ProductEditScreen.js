@@ -27,13 +27,13 @@ export default function ProductEditScreen() {
     category: '',
     subCategory: '',
     description: '',
+    additionalInfo:'',
     price: '',
     countInStock: '',
     productDiscountedPrice: '',
     categoryID: '',
     blackFridaySale: false,
-    image: '',
-    images: [],
+    
   });
 
   const [productImages, setProductImages] = useState({ image: '', images: [] });
@@ -133,6 +133,7 @@ export default function ProductEditScreen() {
     formData.append('category', productFields.category);
     formData.append('subCategory', productFields.subCategory);
     formData.append('description', productFields.description);
+    formData.append('additionalInfo',productFields.additionalInfo);
     formData.append('price', productFields.price);
     formData.append('countInStock', productFields.countInStock);
     formData.append(
@@ -264,6 +265,15 @@ export default function ProductEditScreen() {
               name="description"
               onChange={handleInputFields}
               value={productFields.description}
+              className="form-control"
+            />
+          </div>
+          <div className="col-md-6 col-sm-12">
+            <label>Additional Info</label>
+            <textarea
+              name="additionalInfo"
+              onChange={handleInputFields}
+              value={productFields.additionalInfo}
               className="form-control"
             />
           </div>

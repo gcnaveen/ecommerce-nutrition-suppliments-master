@@ -137,7 +137,7 @@ export default function DealsOfTheday(props) {
                     <div>
                       <span style={{ fontSize: '20px' }}>
                         <b>
-                          Rs.{product.price - product.productDiscountedPrice}
+                          ${product.price - product.productDiscountedPrice}
                         </b>
                       </span>
                       <span
@@ -147,7 +147,7 @@ export default function DealsOfTheday(props) {
                         }}
                       >
                         {' '}
-                        Rs.{product.price}
+                        ${product.price}
                       </span>{' '}
                       &nbsp; &nbsp;
                       <span

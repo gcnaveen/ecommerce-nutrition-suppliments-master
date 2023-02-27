@@ -219,7 +219,7 @@ export default function PlaceOrderScreen() {
                             data={[
                               {
                                 quantity: item.quantity,
-                                price: `Rs.${item.price}`,
+                                price: `$${item.price}`,
                               },
                             ]}
                             columns={[
@@ -251,13 +251,13 @@ export default function PlaceOrderScreen() {
                 <ListGroup.Item>
                   <Row>
                     <Col>Items</Col>
-                    <Col>Rs.{cart.itemsPrice.toFixed(2)}</Col>
+                    <Col>${cart.itemsPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
                     <Col>Shipping</Col>
-                    <Col>Rs.{cart.shippingPrice.toFixed(2)}</Col>
+                    <Col>${cart.shippingPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -269,7 +269,7 @@ export default function PlaceOrderScreen() {
                 <ListGroup.Item>
                   <Row>
                     <Col>Discount Price</Col>
-                    <Col>Rs.{cart.discountPrice.toFixed(2)}</Col>
+                    <Col>${cart.discountPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -278,7 +278,7 @@ export default function PlaceOrderScreen() {
                       <strong> Order Total</strong>
                     </Col>
                     <Col>
-                      <strong>Rs.{cart.totalPrice.toFixed(2)}</strong>
+                      <strong>${cart.totalPrice.toFixed(2)}</strong>
                     </Col>
                   </Row>
                 </ListGroup.Item>

@@ -13,6 +13,7 @@ function CreateProduct() {
     category: '',
     subCategory: '',
     description: '',
+    additionalInfo:'',
     price: '',
     countInStock: '',
     productDiscountedPrice: '',
@@ -67,7 +68,7 @@ function CreateProduct() {
   function handleMainFile(e) {
     setProductImages({ ...productImages, image: e.target.files[0] });
   }
-
+console.log('in side the create prtoduct', productImages)
   function handleFormSubmit(e) {
     e.preventDefault();
     // console.log(productFields)
@@ -85,6 +86,7 @@ function CreateProduct() {
     formData.append('category', productFields.category);
     formData.append('subCategory', productFields.subCategory);
     formData.append('description', productFields.description);
+    formData.append('additionalInfo',productFields.additionalInfo);
     formData.append('price', productFields.price);
     formData.append('countInStock', productFields.countInStock);
     formData.append(
@@ -102,8 +104,8 @@ function CreateProduct() {
         }
       })
       .catch((err) => {
-        // toast.error(getError(err));
-        console.log('error in create', err)
+        toast.error(getError(err));
+        // console.log('error in create', err)
         navigate('/admin/products');
       });
 
@@ -233,6 +235,14 @@ function CreateProduct() {
             <label>Description</label>
             <textarea
               name="description"
+              onChange={handleInputFields}
+              className="form-control"
+            />
+          </div>
+          <div className="col-md-6 col-sm-12">
+            <label>Additional Info</label>
+            <textarea
+              name="additionalInfo"
               onChange={handleInputFields}
               className="form-control"
             />

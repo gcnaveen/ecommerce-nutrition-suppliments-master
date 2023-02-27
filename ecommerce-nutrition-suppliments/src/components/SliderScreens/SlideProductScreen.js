@@ -150,8 +150,8 @@ export default function SlideProductScreen() {
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
-                    <Col>Rs.{slider.price}</Col>
-                    <Col>Rs. {slider.productDiscountedPrice} </Col>
+                    <Col>${slider.price}</Col>
+                    <Col>$ {slider.productDiscountedPrice} </Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>

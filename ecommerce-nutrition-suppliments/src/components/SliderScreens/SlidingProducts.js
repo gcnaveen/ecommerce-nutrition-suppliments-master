@@ -187,7 +187,7 @@ export default function SlidingProducts() {
                     <div style={{ display: 'flex' }}>
                       <div style={{ fontSize: '30px' }}>
                         {' '}
-                        Rs.{ele.price - ele.productDiscountedPrice}{' '}
+                        ${ele.price - ele.productDiscountedPrice}{' '}
                       </div>
                       <div
                         style={{
@@ -196,7 +196,7 @@ export default function SlidingProducts() {
                         }}
                       >
                         {' '}
-                        Rs.{ele.price}
+                        ${ele.price}
                       </div>
 
                       <div
