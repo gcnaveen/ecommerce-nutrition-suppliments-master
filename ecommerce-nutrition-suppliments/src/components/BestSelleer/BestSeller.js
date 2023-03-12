@@ -200,7 +200,7 @@ export default function BestSeller(props) {
                         }}
                         className='add_to_cart'
                       >
-                        Add to cart
+                        Buy Now
                       </span>
                     </Button>
                   )}

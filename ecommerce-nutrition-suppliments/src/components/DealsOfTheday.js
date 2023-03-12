@@ -12,7 +12,7 @@ export default function DealsOfTheday(props) {
   console.log('in side SaleOfTheday ', props);
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const [modal, setModal] = useState(false);
-  const [show, setShow] = useState(10);
+  const [show, setShow] = useState(6);
 
   const {
     userInfo,
@@ -38,14 +38,14 @@ export default function DealsOfTheday(props) {
 
   const _slice = props.products.slice(0, show);
   console.log('slice in best', _slice);
-  const loadMore = () => {
-    setShow(show + show);
-  };
+  // const loadMore = () => {
+  //   setShow(show + show);
+  // };
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  // Math.floor(props.products.price)
   return (
     <>
       <div style={{ width: '99%' }} className="page-heading">
@@ -67,7 +67,6 @@ export default function DealsOfTheday(props) {
               fontSize: '18px',
             }}
             to="/allDealoftheday"
-            // onClick={() => loadMore()}
           >
             View all
           </Link>
@@ -94,7 +93,7 @@ export default function DealsOfTheday(props) {
               <Card
                 style={{
                   width: '250px',
-                  height: '300px',
+                  height: '350px',
                   margin: '2px',
                 }}
               >
@@ -135,6 +134,7 @@ export default function DealsOfTheday(props) {
                   />
                   <Card.Text>
                     <div>
+                    <b>Only ${((product.price - product.productDiscountedPrice)/30).toFixed(2)} per pill</b><br/>
                       <span style={{ fontSize: '20px' }}>
                         <b>
                           ${product.price - product.productDiscountedPrice}
@@ -191,7 +191,7 @@ export default function DealsOfTheday(props) {
                         }}
                         className='add_to_cart'
                       >
-                        Add to cart
+                        Buy Now
                       </span>
                     </Button>
                   )}

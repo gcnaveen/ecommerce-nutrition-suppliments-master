@@ -28,6 +28,7 @@ import SwiperCore, { Navigation } from 'swiper';
 import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
 import 'swiper/components/pagination/pagination.min.css';
+import ReactTable from 'react-table-6';
 SwiperCore.use([Navigation]);
 
 const reducer = (state, action) => {
@@ -164,6 +165,27 @@ export default function ProductScreen() {
       dispatch({ type: 'CREATE_FAIL' });
     }
   };
+
+  const handleShow = async (cell) => {
+    const existItem = cart.cartItems.find((x) => x._id === product._id);
+    let quantity = existItem ? existItem.quantity + 1 : 1;
+    let packageName = cell?.row?._original.package
+    let packagePrice =  cell?.row?._original.price
+    let packageperpill = cell?.row?._original.perpill
+    const { data } = await axios.get(`/api/products/${product._id}`);
+    console.log('inside :::', data);
+    if (data.countInStock < quantity) {
+      window.alert('Sorry. Product is out of stock');
+      return;
+    }
+    ctxDispatch({
+      type: 'CART_ADD_ITEM',
+      payload: { ...product, quantity,packageName,packagePrice,packageperpill},
+    });
+    navigate('/bulkorder');
+    console.log(cell?.row?._original);
+}
+
   console.log('product', product);
   return loading ? (
     <LoadingBox />
@@ -223,7 +245,7 @@ export default function ProductScreen() {
               class="product_name"
               style={{ color: ' #75b510', fontSize: '20px' }}
             >
-              {product.slug}
+              {product?.slug}
               {/* 100% Whey Gold Standard Optimum Nutrition (16 pack) */}
             </div>
 
@@ -235,14 +257,14 @@ export default function ProductScreen() {
                     data-currency-usd="$ 199.00"
                     data-currency="USD"
                   >
-                    Price : {product.price}
+                    Price :<b>${product?.price}</b> 
                   </p>
                   <p
                     class="money compare-at-price"
                     data-currency-usd="$ 220.00"
                     data-currency="USD"
                   >
-                    Discount Price : {product.productDiscountedPrice}
+                    Discount Price : <b>${product?.productDiscountedPrice}</b>
                   </p>
 
                  
@@ -282,7 +304,7 @@ export default function ProductScreen() {
             </div>
 
             <div class="product_details">
-              <span> type : </span>
+              <span><b> type : </b></span>
               <span class="product_type" style={{ color: ' #75b510' }}>
                 {product.category}
               </span>
@@ -300,6 +322,136 @@ export default function ProductScreen() {
           </div>
         </Col>
       </Row>
+      {userInfo?.isAdmin?<ReactTable
+                            data={[
+                              {
+                                package: '30 pills x 1mg',
+                                price: `$${product.priceFor30Pills}`,
+                                perpill:`$${(product.priceFor30Pills/30).toFixed(2)}`,
+                                // action:<button>Add To Cart</button>
+                              },
+                              
+                              {
+                                package: '60 pills x 1mg',
+                                price: `$${product.priceFor60Pills}`,
+                                perpill:`$${(product.priceFor60Pills/60).toFixed(2)}`,
+                                savings:`$${product.price*60-product.priceFor60Pills}`,                                // action:<button>Add To Cart</button>
+                              },
+                              {
+                                package: '90 pills x 1mg',
+                                price: `$${product.priceFor90Pills}`,
+                                perpill:`$${(product.priceFor90Pills/90).toFixed(2)}`,
+                                savings:`$${product.price*90-product.priceFor90Pills}`,
+                                // action:<button>Add To Cart</button>
+
+                              },
+                              {
+                                package: '120 pills x 1mg',
+                                price: `$${product.priceFor120Pills}`,
+                                perpill:`$${(product.priceFor120Pills/120).toFixed(2)}`,
+                                savings:`$${product.price*120-product.priceFor120Pills}`,                                // action:<button>Add To Cart</button>
+
+                              },
+                              {
+                                package: '180 pills x 1mg',
+                                price: `$${product.priceFor180Pills}`,
+                                perpill:`$${(product.priceFor150Pills/180).toFixed(2)}`,
+                                savings:`$${product.price*180-product.priceFor180Pills}`,                                // action:<button>Add To Cart</button>
+                              },
+                              {
+                                package: '270 pills x 1mg',
+                                price: `$${product.priceFor240Pills}`,
+                                perpill:`$${(product.priceFor270Pills/270).toFixed(2)}`,
+                                savings:`$${product.price*270-product.priceFor270Pills}`,                                // action:<button>Add To Cart</button>
+                              },
+                              
+                            ]}
+                            columns={[
+                              { Header: 'Package', accessor: 'package' },
+                              { Header: 'Price', accessor: 'price' },
+                              { Header: 'Perpill', accessor: 'perpill' },
+                              { Header: 'Savings', accessor: 'savings' },
+                              // { Header: 'Action', accessor: 'action' },
+                              // { Header: "Action",
+                              // accessor: 'action',
+                              // Cell: ({ row }) => (
+                              //   <button onClick={()=>handleShow({row})}>
+                              //     Add to cart
+                              //   </button>
+                              // )}
+                            ]}
+                            minRows={0}
+                          />:<ReactTable
+                          data={[
+                            {
+                              package: '30 pills x 1mg',
+                              price: `$${product.priceFor30Pills}`,
+                              perpill:`$${(product.priceFor30Pills/30).toFixed(2)}`,
+                              // action:<button>Add To Cart</button>
+                            },
+                            {
+                              package: '45 pills x 1mg',
+                              price: `$${product.priceFor45Pills}`,
+                              perpill:`$${(product.priceFor45Pills/45).toFixed(2)}`,
+                              savings:`$${product.price*45-product.priceFor90Pills}`,                              // action:<button>Add To Cart</button>
+                            },
+                            {
+                              package: '60 pills x 1mg',
+                              price: `$${product.priceFor60Pills}`,
+                              perpill:`$${(product.priceFor60Pills/60).toFixed(2)}`,
+                              savings:`$${product.price*60-product.priceFor90Pills}`,                              // action:<button>Add To Cart</button>
+                            },
+                            {
+                              package: '90 pills x 1mg',
+                              price: `$${product.priceFor90Pills}`,
+                              perpill:`$${(product.priceFor90Pills/90).toFixed(2)}`,
+                              savings:`$${product.price*90-product.priceFor90Pills}`,                              // action:<button>Add To Cart</button>
+
+                            },
+                            {
+                              package: '120 pills x 1mg',
+                              price: `$${product.priceFor120Pills}`,
+                              perpill:`$${(product.priceFor120Pills/120).toFixed(2)}`,
+                              savings:`$${product.price*120-product.priceFor90Pills}`,                              // action:<button>Add To Cart</button>
+
+                            },
+                            {
+                              package: '150 pills x 1mg',
+                              price: `$${product.priceFor150Pills}`,
+                              perpill:`$${(product.priceFor150Pills/150).toFixed(2)}`,
+                              savings:`$${product.price*150-product.priceFor90Pills}`,                              // action:<button>Add To Cart</button>
+                            },
+                            {
+                              package: '240 pills x 1mg',
+                              price: `$${product.priceFor240Pills}`,
+                              perpill:`$${(product.priceFor240Pills/240).toFixed(2)}`,
+                              savings:`$${product.price*240-product.priceFor90Pills}`,                              // action:<button>Add To Cart</button>
+                            },
+                            {
+                              package: '300 pills x 1mg',
+                              price: `$${product.priceFor300Pills}`,
+                              perpill:`$${(product.priceFor300Pills/300).toFixed(2)}`,
+                              savings:`$${product.price*300-product.priceFor90Pills}`,                              // action: <button>Add To Cart</button>
+                            },
+                          ]}
+                          columns={[
+                            { Header: 'Package', accessor: 'package' },
+                            { Header: 'Price', accessor: 'price' },
+                            { Header: 'Perpill', accessor: 'perpill' },
+                            { Header: 'Savings', accessor: 'savings' },
+                            // { Header: 'Action', accessor: 'action' },
+                            { Header: "Action",
+                            accessor: 'action',
+                            Cell: ({ row }) => (
+                              <button className='add_cart_in_table' onClick={()=>handleShow({row})}>
+                                Add to cart
+                              </button>
+                            )}
+                          ]}
+                          minRows={0}
+                        />}
+      
+
       <div className="my-3">
         <h2 ref={reviewsRef}>Reviews</h2>
         <div className="mb-3">

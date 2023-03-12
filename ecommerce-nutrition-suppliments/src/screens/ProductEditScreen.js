@@ -30,10 +30,15 @@ export default function ProductEditScreen() {
     additionalInfo:'',
     price: '',
     countInStock: '',
+    priceFor30Pills:'',
+    priceFor60Pills:'',
+    priceFor90Pills:'',
+    priceFor120Pills:'',
+    priceFor180Pills:'',
+    priceFor270Pills:'',
     productDiscountedPrice: '',
     categoryID: '',
     blackFridaySale: false,
-    
   });
 
   const [productImages, setProductImages] = useState({ image: '', images: [] });
@@ -136,6 +141,12 @@ export default function ProductEditScreen() {
     formData.append('additionalInfo',productFields.additionalInfo);
     formData.append('price', productFields.price);
     formData.append('countInStock', productFields.countInStock);
+    formData.append('priceFor30Pills',productFields.priceFor30Pills);
+    formData.append('priceFor60Pills',productFields.priceFor60Pills)
+    formData.append('priceFor90Pills',productFields.priceFor90Pills)
+    formData.append('priceFor120Pills',productFields.priceFor120Pills)
+    formData.append('priceFor180Pills',productFields.priceFor180Pills)
+    formData.append('priceFor270Pills',productFields.priceFor270Pills)
     formData.append(
       'productDiscountedPrice',
       productFields.productDiscountedPrice
@@ -153,6 +164,7 @@ export default function ProductEditScreen() {
         navigate('/admin/products');
       }
     } catch (error) {
+      console.log('error while updating',error)
       toast.error(getError(error));
       navigate('/admin/products');
     }
@@ -249,6 +261,64 @@ export default function ProductEditScreen() {
             />
           </div>
         </div>
+        <div className='row'>
+       
+          <div className="col-md-4 col-sm-12">
+            <label>Price for 30Pills</label>
+            <input
+              onChange={handleInputFields}
+              name="priceFor30Pills"
+              className="form-control"
+              value={productFields.priceFor30Pills}
+            />
+          </div>
+          
+          <div className="col-md-4 col-sm-12">
+            <label>Price for 60Pills</label>
+            <input
+              onChange={handleInputFields}
+              name="priceFor60Pills"
+              className="form-control"
+              value={productFields.priceFor60Pills}
+            />
+          </div>
+          <div className="col-md-4 col-sm-12">
+            <label>Price for 90Pills</label>
+            <input
+              onChange={handleInputFields}
+              name="priceFor90Pills"
+              className="form-control"
+              value={productFields.priceFor90Pills}
+            />
+          </div>
+          <div className="col-md-4 col-sm-12">
+            <label>Price for 120Pills</label>
+            <input
+              onChange={handleInputFields}
+              name="priceFor120Pills"
+              className="form-control"
+              value={productFields.priceFor120Pills}
+            />
+          </div>
+          <div className="col-md-4 col-sm-12">
+            <label>Price for 180Pills</label>
+            <input
+              onChange={handleInputFields}
+              name="priceFor180Pills"
+              className="form-control"
+              value={productFields.priceFor180Pills}
+            />
+          </div>
+          <div className="col-md-4 col-sm-12">
+            <label>Price for 270Pills</label>
+            <input
+              onChange={handleInputFields}
+              name="priceFor270Pills"
+              className="form-control"
+              value={productFields.priceFor270Pills}
+            />
+          </div>
+        </div>
         <div className="row">
           <div className="col-md-6 col-sm-12">
             <label>Brand</label>
@@ -277,7 +347,7 @@ export default function ProductEditScreen() {
               className="form-control"
             />
           </div>
-          <div className="col-md-6 col-sm-12">
+          {/* <div className="col-md-6 col-sm-12">
             <label>Black Friday Sale</label>
             <select
               value={productFields.blackFridaySale}
@@ -292,7 +362,7 @@ export default function ProductEditScreen() {
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">

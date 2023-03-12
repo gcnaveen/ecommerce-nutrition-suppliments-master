@@ -1,6 +1,7 @@
 {
   "name": "amazona",
-  "proxy": "http://localhost:5001",
+  "homepage": "http://www.rxmedicineonline.com/medical_store/",
+  "proxy": "https://backend-final-xeib.onrender.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -35,7 +35,7 @@ const reducer = (state, action) => {
   }
 };
 
-export default function AddToCart() {
+export default function Pills() {
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(0);
   const [modal, setModal] = useState(false);
@@ -189,10 +189,11 @@ export default function AddToCart() {
                         src={item.image}
                         alt={item.name}
                         className="img-fluid rounded img-thumbnail"
+                        style={{height:'100px'}}
                       ></img>{' '}
                       <Link to={`/product/${item.slug}`}>{item.name}</Link>
                     </Col>
-                    <div className="quantityAlign">
+                    {/* <div className="quantityAlign">
                       <Col md={4}>
                         <Button
                           onClick={() => {
@@ -216,20 +217,8 @@ export default function AddToCart() {
                         </Button>
                       </Col>
                       <Col md={3}>
-                        {/* ${item.price} */}
-                        {/* <div>
-                          <select
-                            style={{ fontSize: '13px' }}
-                            defaultValue=""
-                            onChange={(e) => handleChange(item, e.target.value)}
-                          >
-                            <option value="">quantity</option>
-                            <option value="60">60</option>
-                            <option value="90">90</option>
-                            <option value="180">180</option>
-                            <option value="270">270</option>
-                          </select>
-                        </div> */}
+                        ${item.price}
+                        
                       </Col>
                       <Col md={2}>
                         <Button
@@ -239,7 +228,7 @@ export default function AddToCart() {
                           <i className="fas fa-trash"></i>
                         </Button>
                       </Col>
-                    </div>
+                    </div> */}
                   </Row>
                 </ListGroup.Item>
               ))}
@@ -251,11 +240,20 @@ export default function AddToCart() {
             <Card.Body>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <h5>
-                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                    items) : $
-                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
-                  </h5>
+                  
+                  <div>
+                    <b>Package Name  </b> :{cartItems[0]?.packageName}
+                    
+                  </div>
+                  <div> <b>price :</b> 
+                    {cartItems[0]?.packagePrice}</div>
+                    
+                <div>
+                        <b>price per pill:</b>{cartItems[0]?.packageperpill}
+                </div>
+                   
+                  
+                  
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <div className="d-grid">

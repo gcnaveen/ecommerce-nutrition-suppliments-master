@@ -418,9 +418,18 @@ a {
   border-radius: 0 1rem 1rem 0;
   border-left: 0;
 }
-
+.rte{
+  white-space: break-spaces !important
+}
+/* .form-control{
+  white-space: break-spaces !important
+} */
 /* hero image */
-
+.add_cart_in_table{
+  border: none;
+    width: 50%;
+    border-radius: 5px;
+}
 .hero__section {
   background: rgb(243, 236, 236);
 }

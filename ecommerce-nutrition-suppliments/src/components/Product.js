@@ -46,6 +46,7 @@ export default function Product(props) {
   };
   const discountPrice =
     props.product.price - props.product.productDiscountedPrice;
+    const pricePerPill =(discountPrice/30).toFixed(2)
   const percentage = Math.floor(
     (props.product.productDiscountedPrice / props.product.price) * 100
   );
@@ -67,6 +68,9 @@ export default function Product(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+console.log('is side product',props.product)
+
   return (
     <>
       <div>
@@ -77,13 +81,14 @@ export default function Product(props) {
           </ModalBody>
         </Modal>
       </div>
-      <Card
+      {props.product.countInStock ===0 ?null:<Card
         style={{
           width: '250px',
-          height: '300px',
+          height: '350px',
           margin: '2px',
         }}
       >
+       
         <Link to={`/product/${props.product.slug}`} style={{ height: '50%' }}>
           <img
             src={props.product.image}
@@ -116,8 +121,10 @@ export default function Product(props) {
             rating={props.product.rating}
             numReviews={props.product.numReviews}
           />
+
           <Card.Text>
             <div>
+            <b>Only ${pricePerPill} per pill</b><br/>
               <span style={{ fontSize: '20px' }}>
                 <b>${discountPrice}</b>
               </span>
@@ -131,6 +138,7 @@ export default function Product(props) {
                 ${props.product.price}
               </span>{' '}
               &nbsp; &nbsp;
+              
               <span
                 style={{
                   margin: 'auto',
@@ -169,12 +177,13 @@ export default function Product(props) {
                 }}
                 className='add_to_cart'
               >
-                Add to cart
+                Buy Now
               </span>
             </Button>
           )}
         </div>
-      </Card>
+      </Card>}
+      
     </>
   );
 }

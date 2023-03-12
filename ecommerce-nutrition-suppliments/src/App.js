@@ -54,6 +54,7 @@ import { getError } from './utils';
 import SignUpInfo from './screens/SignUpInfo';
 import ViewBestSellerScreen from './screens/ViewBestSellerScreen';
 import ViewDealOfTheDayProducts from './screens/ViewDealOfTheDayProducts';
+import Pills from './screens/Pills';
 
 function App() {
   const {
@@ -487,6 +488,8 @@ function App() {
                 element={<CategoryWiseProductList />}
               />
               <Route path="/product/:slug" element={<ProductScreen />} />
+              <Route path="/bulkorder" element={<Pills />} />
+
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
